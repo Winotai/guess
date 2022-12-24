@@ -4,7 +4,7 @@ import 'dart:io';
 import 'game.dart';
 
 //List<int> myList = [];
-var myList = <int> [];
+var myList = <int>[];
 var len = myList.length;
 //myList.add(123);
 var off = false;
@@ -34,23 +34,23 @@ void main() {
       print('║                     THE END');
       print('╚══════════════════════════════════════════════════');
       myList.add(game.totalGuesses);
-do {
-  stdout.write('Play again? (Y/N): ');
-  var pass = stdin.readLineSync();
-  if (pass == 'Y' || pass == 'y') {
-    off = gameon(pass);
-  } else if (pass == 'N' || pass == 'n') {
-    print("YOU've played $len games");
-    for (var i = 1; i <= myList.length; i++) {
-      var count = myList[i-1];
-      print("🚀 Game #$i: $count");
-    }
-    off = true;
-  } else {
-    continue;
-  }
-}while(!off);
-      } else if (guessResult == GuessResult.tooHigh) {
+      do {
+        stdout.write('Play again? (Y/N): ');
+        var pass = stdin.readLineSync();
+        if (pass == 'Y' || pass == 'y') {
+          off = gameon(pass);
+        } else if (pass == 'N' || pass == 'n') {
+          print("YOU've played $len games");
+          for (var i = 1; i <= myList.length; i++) {
+            var count = myList[i - 1];
+            print("🚀 Game #$i: $count guesses");
+          }
+          exit(0);
+        } else {
+          continue;
+        }
+      } while (!off);
+    } else if (guessResult == GuessResult.tooHigh) {
       print('║ ➜ $guess is TOO HIGH! ▲');
       print('╟──────────────────────────────────────────────────');
     } else {
@@ -58,8 +58,9 @@ do {
       print('╟──────────────────────────────────────────────────');
     }
   } while (guessResult != GuessResult.correct);
-  }
-gameon(var pass){
+}
+
+gameon(var pass) {
   var game = Game(); //maxRandom: 10000,name:'Winotai',age: 21
   late GuessResult guessResult;
 
@@ -94,14 +95,14 @@ gameon(var pass){
         } else if (pass == 'N' || pass == 'n') {
           print("YOU've played $len games");
           for (var i = 1; i <= myList.length; i++) {
-            var count = myList[i-1];
-            print("🚀 Game #$i: $count");
+            var count = myList[i - 1];
+            print("🚀 Game #$i: $count guesses");
           }
-          off = true;
+          exit(0);
         } else {
           continue;
         }
-      }while(!off);
+      } while (!off);
     } else if (guessResult == GuessResult.tooHigh) {
       print('║ ➜ $guess is TOO HIGH! ▲');
       print('╟──────────────────────────────────────────────────');
