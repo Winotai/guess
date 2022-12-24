@@ -8,15 +8,12 @@ enum GuessResult{
 }
 
 class Game{
-  final int answer; // = Random().nextInt(100) + 1;
-  final String name;
-  final int age;
+  final int answer = Random().nextInt(100) + 1;
   int _totalGuess = 0;
 
   //constructor
-  Game({required int maxRandom,required this.name,required this.age}) :
-        answer = Random().nextInt(maxRandom) + 1{
-    print('Answer is $answer');
+  Game() {
+    print('Enter maximum number to random: $answer');
   }
 
   GuessResult doGuess(int guess){
@@ -33,6 +30,7 @@ class Game{
 
   //getter
   int get totalGuesses{
+    //
     return _totalGuess;
   }
 }
