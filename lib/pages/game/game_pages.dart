@@ -6,31 +6,33 @@ class GamePage extends StatefulWidget {
   @override
   State<GamePage> createState() => _GamePagesState();
 }
-class _GamePagesState extends State<GamePage>{
+
+class _GamePagesState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Guess the Number'),
-      ),
+        appBar: AppBar(
+          title: const Text('Guess the Number'),
+        ),
         body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Guess the Number betaween 1 and 100'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(onPressed: () {}, child: Text('GUESS')),
-                    ),
-                    ElevatedButton(onPressed: () {}, child: Text('GUESS'))
-                  ],
-                )
-              ],
-            ),
-        )
-    );
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.person, size: 200, color: Color(0xFF0000FFF)),
+              Text('Guess the Number betaween 1 and 100'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child:
+                        ElevatedButton(onPressed: () {}, child: Text('GUESS')),
+                  ),
+                  ElevatedButton(onPressed: () {}, child: Text('GUESS'))
+                ],
+              )
+            ],
+          ),
+        ));
   }
 }
